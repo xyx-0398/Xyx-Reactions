@@ -25,11 +25,10 @@ More tank jobs will be added to this repository using the same toggle window.
 
 ## Strat
 
-Mitigation timings and tank swaps follow the **JP PF strat** (based on JP top logs from FFLogs):
+Built for the **JP PF strat (ヤーン速報 / Yaan Sokuhou)**.
 
-- MT takes the opening Revolting Ruin III, ST takes Hyperdrive 1, MT takes Hyperdrive 2.
-- Tank swaps (Provoke / Shirk) at the usual JP PF timings.
-- Draws below assume the JP PF positions.
+- Draws, positions (P1 trap, P3 Stomp-a-Mole) and tank swaps (Provoke / Shirk) follow ヤーン速報.
+- Mitigation timings are based on JP top logs from FFLogs: MT takes the opening Revolting Ruin III, ST takes Hyperdrive 1, MT takes Hyperdrive 2.
 
 If your party uses a different strat, mitigation and draws may not line up.
 
