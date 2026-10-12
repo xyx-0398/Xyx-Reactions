@@ -7,8 +7,7 @@ TensorReactions profiles for **Dancing Mad (Ultimate)** — tank timelines built
 | Job | General profile | Timeline profile (dmu 1.5.5) | ACR |
 |---|---|---|---|
 | Dark Knight | `xyx\DMU DRK` | `xyx\DMU DRK` | RikuDRK3 |
-
-More tank jobs will be added to this repository using the same toggle window.
+| Paladin | `xyx\DMU PLD` | `xyx\DMU PLD` | RikuPLD3 |
 
 ## Requirements
 
@@ -47,6 +46,7 @@ A small window appears when you are in Dancing Mad on a supported tank job.
 | Voke | ON / OFF | Provoke / Shirk tank swaps |
 | TLB | ON / OFF | Tank LB on P3 Vacuum Wave (8-player soak) |
 | Pot | ON / OFF | 4 strength potions |
+| Pass | ON / OFF | PLD only: auto Passage of Arms on P2 Ultimate Embrace 2 (see Paladin) |
 | Lock | checkbox | Locks the window position |
 
 **Defaults: Mit OFF / Role OFF** — nothing is used until you pick MT or ST.
@@ -62,7 +62,7 @@ Uses the latest strength potion you have (no fixed item), 4 times:
 | 1 | End of P1, before the boss leaves (~194–207s) |
 | 2 | P3, as soon as it comes off cooldown (~464–483s) |
 | 3 | Start of P4, when Kefka becomes targetable |
-| 4 | P5 burst (~P5 +185–212s; on DRK it waits for Living Shadow) |
+| 4 | P5 burst (~P5 +185–212s; waits for Living Shadow on DRK / Fight or Flight on PLD) |
 
 ## Draws / callouts (JP PF positions)
 
@@ -77,15 +77,6 @@ Uses the latest strength potion you have (no fixed item), 4 times:
 ---
 
 # Dark Knight (`xyx\DMU DRK`)
-
-## Mitigation
-
-| Toggle | Skills |
-|---|---|
-| Mit | Rampart, Shadowed Vigil, Dark Mind, Oblation (self / co-tank), The Blackest Night (self / co-tank), Living Dead |
-| Role | Reprisal, Dark Missionary |
-| Voke | Provoke, Shirk |
-| TLB | Dark Force |
 
 ## Opener
 
@@ -109,8 +100,43 @@ With **Mit = MT**, the timeline targets Chaos and uses Shadowstride:
 
 ---
 
+# Paladin (`xyx\DMU PLD`)
+
+## Opener
+
+- At the countdown, the stance follows your **Mit** setting: ST drops Iron Will, MT turns it on.
+- Fight or Flight right after Fast Blade (0s burst). ST turns Iron Will back on before Provoke.
+
+## Passage of Arms
+
+- **Alerts** (text + TTS "Passage of Arms") about 3s before the hit, following your **Role** setting:
+  P1 Light of Judgment 1, P2 Forsaken, P3 after Vacuum Wave (ST), P4 Grand Cross 1, P5 Flood, P5 Forsaken.
+- **Auto Passage on P2 Ultimate Embrace 2** (shared tankbuster): uses Passage of Arms only when your co-tank is behind you, pauses the ACR until the hit lands, then resumes it.
+  Requires Role = MT/ST and **Pass = ON**.
+
+## Burst holds
+
+| Phase | What it does |
+|---|---|
+| End of P1 | After Imperator, Confiteor / Holy Spirit / Holy Circle are held until P2 starts; P2 opens with Goring Blade, then Confiteor |
+| Whole fight | Fight or Flight is used on the next weave as soon as it's ready, so it doesn't drift (not right before a downtime) |
+| P5 | Fight or Flight and Imperator are held until the **3rd Celestriad tower** |
+
+## Movement
+
+- The ACR's auto Intervene (Jumps) is turned off during positional mechanics and restored afterwards:
+  P1 arrows / gaze, P2 Forsaken / Trine, P3 Limit Cut, P3 Black Hole (while tethered, and after it), P4 debuffs, P5 Flood / Celestriad.
+- P3: after Limit Cut, Intervene to Exdeath if he is far away.
+
+## Draws
+
+- **[ST] P3 Black Hole Implosion**: where to point Chaos (45 degrees), shown with **Mit = ST**.
+
+---
+
 ## Notes
 
 - **Disable your own opener / mitigation logic in DMU.** Your general profile (including `store\anyone\Jobs\<Job>` "Use Mitigation" / "Use Pack Mitigation") will otherwise spend cooldowns the timeline needs.
+- PLD: also turn off the pre-pull Divine Veil from `store\anyone\Jobs\Paladin` "Prepull Helper" in DMU, or the first Divine Veil may still be on cooldown.
 - Party mitigation inherited from `store\anyone\dmu\main` still runs with its own MT/ST setting; it is independent of this window.
 - If the general profile is not inherited, the timeline uses no mitigation at all (safe default).
